@@ -6,8 +6,8 @@ $fromC = null;
 $toC = null;
 $showConversion = false;
 $showError = false;
-$currencyFrom = '';
-$currencyTo = '';
+$unitFrom = '';
+$unitTo = '';
 
 if (isset($_POST['enviar'])) {
     $quantity = is_numeric($_POST['quantity']) ? $_POST['quantity'] : null;
@@ -16,11 +16,11 @@ if (isset($_POST['enviar'])) {
 
     if ($fromC == $toC || $quantity == null) {
         $showError = true;
-        $currencyFrom = 'Asegúrate que las unidades seleccionadas sean diferentes y que la cantidad a convertir no sea nula.';
+        $unitFrom = 'Asegúrate que las unidades seleccionadas sean diferentes y que la cantidad a convertir no sea nula.';
     } else {
         $showConversion = true;
-        $currencyFrom = getMeasurementText($fromC, $quantity);
-        $currencyTo = getMeasurementText($toC, convertTo(convertFromToM($quantity, $fromC), $toC));
+        $unitFrom = getMeasurementText($fromC, $quantity);
+        $unitTo = getMeasurementText($toC, convertTo(convertFromToM($quantity, $fromC), $toC));
     }
 }
 
@@ -74,7 +74,6 @@ function getMeasurementText($currency, $quantity)
 }
 ?>
 
-
 <h1 class="pb-3">Conversor de unidades</h1>
 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
     <div class="mb-3">
@@ -120,8 +119,8 @@ if ($showConversion) :
             </thead>
             <tbody>
                 <tr>
-                    <td scope="col"><?= $currencyFrom ?></td>
-                    <td scope="col"><?= $currencyTo ?></td>
+                    <td scope="col"><?= $unitFrom ?></td>
+                    <td scope="col"><?= $unitTo ?></td>
                 </tr>
             </tbody>
         </table>
@@ -136,7 +135,7 @@ elseif ($showError) :
 ?>
 
     <div class="mt-3 text-danger">
-        <?= $currencyFrom ?>
+        <?= $unitFrom ?>
     </div>
 
 <?php
