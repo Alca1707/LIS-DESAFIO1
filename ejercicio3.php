@@ -2,9 +2,6 @@
 include('header.php');
 ?>
 
-<div class="container text-center position-absolute top-50 start-50 translate-middle">
-    <div class="row d-flex align-items-center">
-        <div class="col">
             <h1 class="pb-5">Transportes Salvador</h1>
 
             <form action="postEjercicio3.php" method="post">
@@ -29,9 +26,6 @@ include('header.php');
                     <input type="button" value="Calcular" class="btn btn-outline-dark text-uppercase mt-3" name="enviar">
                 </div>
             </form>
-        </div>
-    </div>
-</div>
 
 <?php
 include('footer.php');
