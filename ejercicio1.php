@@ -16,7 +16,7 @@ if (isset($_POST['enviar'])) {
 
     if ($fromC == $toC || $quantity == null) {
         $showError = true;
-        $currencyFrom = 'Asegurate que las monedas seleccionadas sean diferentes y que la cantidad a convertir no sea nula.';
+        $currencyFrom = 'Asegúrate que las monedas seleccionadas sean diferentes y que la cantidad a convertir no sea nula.';
     } else {
         $showConversion = true;
         $currencyFrom = getCurrencyText($fromC, $quantity);
@@ -100,7 +100,7 @@ function getCurrencyText($currency, $quantity) {
     </div>
 
     <div class="d-grid gap-2 col-6 mx-auto">
-        <input type="submit" value="Convertir" class="btn btn-outline-dark text-uppercase mt-3" name="enviar">
+        <input type="submit" value="Convertir" class="btn btn-outline-dark fw-bold text-uppercase mt-3" name="enviar">
     </div>
 </form>
 
