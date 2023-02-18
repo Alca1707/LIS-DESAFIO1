@@ -7,6 +7,7 @@ $showResult = false;
 $showError = false;
 $result = '';
 $vehicleR = '';
+$resultText = '';
 
 if (isset($_POST['enviar'])) {
     $distance = is_numeric($_POST['distance']) ? $_POST['distance'] : null;
@@ -50,9 +51,9 @@ function getVehicle($vehicle)
 {
     switch ($vehicle) {
         case 'c5':
-            return "Camión 5 de ton";
+            return "Camión de 5 ton";
         case 'c3':
-            return "Camión 5 de ton";
+            return "Camión de 5 ton";
         case 'pi':
             return "PickUp";
         case 'pa':
@@ -68,8 +69,8 @@ function getVehicle($vehicle)
     <div class="mb-3">
         <label for="vehicle" class="form-label">Seleccione el tipo de vehículo a utilizar para la entrega:</label><br>
         <select class="form-select" id="vehicle" name="vehicle" aria-label="Default select example">
-            <option value="c5" selected>Camión 5 ton</option>
-            <option value="c3">Camión 3 ton</option>
+            <option value="c5" selected>Camión de 5 ton</option>
+            <option value="c3">Camión de 3 ton</option>
             <option value="pi">PickUp</option>
             <option value="pa">Panel</option>
             <option value="mo">Moto</option>
@@ -108,8 +109,13 @@ if ($showResult) :
             </tbody>
         </table>
     </div>
+    <div class="mt-3">
+        <p>
+            En <?= strtolower($vehicleR) ?> entregará a <?= $distance ?> de distancia consumiendo <?= $result ?> galones.
+        </p>
+    </div>
     <script>
-        document.getElementById('vehicle').value = '<?= $vehicle ?>';    
+        document.getElementById('vehicle').value = '<?= $vehicle ?>';
     </script>
 
 <?php
